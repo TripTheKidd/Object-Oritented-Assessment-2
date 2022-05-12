@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Object_Oriented_Assessment_2;
 using static System.Console;
 
 namespace Object_Oriented_Assessment_2
@@ -47,6 +47,7 @@ namespace Object_Oriented_Assessment_2
             if (playResponse == "yes")
             {
                 WriteLine("Let's get started then!");
+                Gamers();
                 Player1Round();
             }
             else
@@ -78,25 +79,9 @@ namespace Object_Oriented_Assessment_2
                 int P1roll5 = DiceRoll.Next(1, 7);
                 WriteLine($"You rolled {P1roll1} {P1roll2} {P1roll3} {P1roll4} {P1roll5}");
 
-                if (P1roll1 == P1roll2 && P1roll2 == P1roll3 && P1roll3 == P1roll4 && P1roll4 == P1roll5)
-                {
-                    P1Score += 12;
-                }
 
-                else if (P1roll1 == P1roll2 && P1roll2 == P1roll3 && P1roll3 == P1roll4)
-                {
-                    P1Score += 6;
-                }
 
-                else if (P1roll1 == P1roll2 && P1roll2 == P1roll3)
-                {
-                    P1Score += 3;
-                }
-                
-                else
-                {
-                    P1Score += 1;
-                }
+
 
 
 
@@ -105,15 +90,19 @@ namespace Object_Oriented_Assessment_2
 
 
 
-                //WriteLine("Press any key to continue...");
-                //ReadKey();
+                WriteLine("Press any key to continue...");
+                ReadKey();
                 Player2Round();
             }
-            else
+            else if (Response == "no")
             {
                 WriteLine("Nice playing with you!");
             }
-            
+            else
+            {
+                WriteLine($"You entered '{Response}'. That's not valid. Try again with 'yes' or 'no'.");
+            }
+
             
 
 
@@ -138,26 +127,7 @@ namespace Object_Oriented_Assessment_2
                 int P2roll5 = DiceRoll.Next(1, 7);
                 WriteLine($"You rolled {P2roll1} {P2roll2} {P2roll3} {P2roll4} {P2roll5}");
 
-                if (P2roll1 == P2roll2 && P2roll2 == P2roll3 && P2roll3 == P2roll4 && P2roll4 == P2roll5)
-                {
-                    P2Score += 12;
-                }
-
-                else if (P2roll1 == P2roll2 && P2roll2 == P2roll3 && P2roll3 == P2roll4)
-                {
-                    P2Score += 6;
-                }
-
-                else if (P2roll1 == P2roll2 && P2roll2 == P2roll3)
-                {
-                    P2Score += 3;
-                }
-
-                else
-                {
-                    P2Score += 1;
-                }
-
+             
 
 
                 WriteLine(P2Score);
@@ -165,13 +135,18 @@ namespace Object_Oriented_Assessment_2
 
 
 
-                //WriteLine("Press any key to continue...");
-                //ReadKey();
+                WriteLine("Press any key to continue...");
+                ReadKey();
                 Player1Round();
             }
-            else
+            else if (Response == "no")
             {
                 WriteLine("Nice playing with you!");
+            }
+
+            else
+            {
+                WriteLine($"You entered '{Response}'. That's not valid. Try again with 'yes' or 'no'.");
             }
 
 
@@ -182,6 +157,7 @@ namespace Object_Oriented_Assessment_2
         private void Win()
         {
             //Method that increments the score and lets the player know they won
+            WriteLine("{} wins!");
         }
 
         private void Lose()
