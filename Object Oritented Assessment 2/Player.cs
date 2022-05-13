@@ -8,11 +8,13 @@ using static System.Console;
 
 namespace Object_Oritented_Assessment_2
 {
-    internal class Player
+    public class Player
     {
 
         public static void Gamers()
         {
+            
+
             WriteLine("Please enter your name player 1");
             string Player1 = ReadLine().Trim();
 

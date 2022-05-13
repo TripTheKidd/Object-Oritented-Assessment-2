@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Object_Oriented_Assessment_2;
+using Object_Oritented_Assessment_2;
 using static System.Console;
 
 namespace Object_Oriented_Assessment_2
@@ -46,8 +46,9 @@ namespace Object_Oriented_Assessment_2
             string playResponse = ReadLine().Trim().ToLower();
             if (playResponse == "yes")
             {
+                Clear();
                 WriteLine("Let's get started then!");
-                Gamers();
+                Player.Gamers();
                 Player1Round();
             }
             else
@@ -57,7 +58,7 @@ namespace Object_Oriented_Assessment_2
 
             WriteLine("Press any key to exit...");
             ReadKey();
-            
+
         }
 
         private void Player1Round()
@@ -65,7 +66,7 @@ namespace Object_Oriented_Assessment_2
             //Method that runs one round
             Clear();
 
-            WriteLine("Would you like to Roll? If no then the game will exit(yes/no)");
+            WriteLine("Would you like to roll ? If no then the game will exit(yes/no)");
             string Response = ReadLine().Trim().ToLower();
             if (Response == "yes")
             {
@@ -113,7 +114,7 @@ namespace Object_Oriented_Assessment_2
             //Method that runs one round
             Clear();
 
-            WriteLine("Would you like to Roll2? If no then the game will exit(yes/no)");
+            WriteLine("Would you like to roll {Player2}? If no then the game will exit(yes/no)");
             string Response = ReadLine().Trim().ToLower();
             if (Response == "yes")
             {
@@ -150,7 +151,7 @@ namespace Object_Oriented_Assessment_2
             }
 
 
-
+            
 
         }
 
@@ -158,11 +159,14 @@ namespace Object_Oriented_Assessment_2
         {
             //Method that increments the score and lets the player know they won
             WriteLine("{} wins!");
+            AskToPlayAgain();
         }
 
         private void Lose()
         {
             //Method that lets the player know they won
+            WriteLine("Sorry :( {}");
+            AskToPlayAgain();
         }
 
         private void AskToPlayAgain()
@@ -173,6 +177,8 @@ namespace Object_Oriented_Assessment_2
         private void Exit()
         {
             //Method that Exits the Game
+            WriteLine("See you next time!");
+            ReadKey();
         }
     }
 }
