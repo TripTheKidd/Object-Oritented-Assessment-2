@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Object_Oritented_Assessment_2;
 using static System.Console;
 
-namespace Object_Oriented_Assessment_2
+namespace Object_Oritented_Assessment_2
 {
     class Game
     {
@@ -14,6 +14,7 @@ namespace Object_Oriented_Assessment_2
         private int P1Score;
         private int P2Score;
         private Random DiceRoll;
+       
         public Game()
         {
             //Initialize anything that we need to
@@ -46,10 +47,17 @@ namespace Object_Oriented_Assessment_2
             string playResponse = ReadLine().Trim().ToLower();
             if (playResponse == "yes")
             {
+                //Player playerTest = new Player();
                 Clear();
                 WriteLine("Let's get started then!");
-                Player.Gamers();
+                Player1();
+                Player2();
+                //playerTest.Gamers();
                 Player1Round();
+                //WriteLine(playerTest.Player11);
+                //Player1Name = playerTest.Player11;
+                //Player2Name = playerTest.Player21;
+                //WriteLine(Player1Name);
             }
             else
             {
@@ -66,7 +74,9 @@ namespace Object_Oriented_Assessment_2
             //Method that runs one round
             Clear();
 
-            WriteLine("Would you like to roll ? If no then the game will exit(yes/no)");
+            List<int> Player1Results = new List<int>(); 
+
+            WriteLine($"Would you like to roll? If no then the game will exit(yes/no)");
             string Response = ReadLine().Trim().ToLower();
             if (Response == "yes")
             {
@@ -74,14 +84,20 @@ namespace Object_Oriented_Assessment_2
                 System.Threading.Thread.Sleep(1000);
 
                 int P1roll1 = DiceRoll.Next(1, 7);
+                Player1Results.Append(P1roll1);
                 int P1roll2 = DiceRoll.Next(1, 7);
+                Player1Results.Append(P1roll2);
                 int P1roll3 = DiceRoll.Next(1, 7);
+                Player1Results.Append(P1roll3);
                 int P1roll4 = DiceRoll.Next(1, 7);
+                Player1Results.Append(P1roll4);
                 int P1roll5 = DiceRoll.Next(1, 7);
+                Player1Results.Append(P1roll5);
                 WriteLine($"You rolled {P1roll1} {P1roll2} {P1roll3} {P1roll4} {P1roll5}");
 
-
-
+                
+                Player.Gamer1();
+                WriteLine()
 
 
 
@@ -128,8 +144,8 @@ namespace Object_Oriented_Assessment_2
                 int P2roll5 = DiceRoll.Next(1, 7);
                 WriteLine($"You rolled {P2roll1} {P2roll2} {P2roll3} {P2roll4} {P2roll5}");
 
-             
 
+                
 
                 WriteLine(P2Score);
 
